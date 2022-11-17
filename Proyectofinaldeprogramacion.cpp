@@ -9,7 +9,7 @@
 using namespace std;
 //declaracion de variables
 
-int* id, * año, registros, desicion, n = 1;
+int* id, * aÃ±o, registros, desicion, n = 1;
 string* nombre, * clasificacion, * caracteristicas, * genero, * descripcion;
 float* precio, * iva, * total;
 
@@ -68,8 +68,8 @@ int main()
 			break;
 
 		case 6:
-			printf("saliendo del programa...\n\n");
-			system("pause");
+			Archivo();
+			exit();
 			break;
 
 		default:
@@ -85,7 +85,7 @@ void AgregarArt()
 	printf("cuantos registros desea dar de alta \n");
 	scanf_s("%d", &registros);
 	id = new int[registros];
-	año = new int[registros];
+	aÃ±o = new int[registros];
 	nombre = new string[registros];
 	clasificacion = new string[registros];
 	caracteristicas = new string[registros];
@@ -116,7 +116,7 @@ void AgregarArt()
 		} while (n < registros);
 
 		printf(" Escribe el a%co del articulo \n",164);
-		scanf_s("%d", &año[i]);
+		scanf_s("%d", &aÃ±o[i]);
 		printf(" Escribe el nombre del articulo \n");
 		cin.ignore();
 		getline(cin, nombre[i]);
@@ -173,7 +173,7 @@ void Lista()
 				{
 					printf(" Nombre del videojuego: %s\n", nombre[i].c_str());
 					printf(" Numero del articulo: %d\n", id[i]);
-					printf(" El a%co es: %d\n", 164, año[i]);
+					printf(" El a%co es: %d\n", 164, aÃ±o[i]);
 
 					printf(" Clasificacion del juego: %s\n", clasificacion[i].c_str());
 					printf(" El genero es : %s\n", genero[i].c_str());
@@ -200,7 +200,7 @@ void Lista()
 				{
 					printf(" Nombre del videojuego: %s\n", nombre[i].c_str());
 					printf(" Numero del articulo: %d\n", id[i]);
-					printf(" El a%co es: %d\n", 164, año[i]);
+					printf(" El a%co es: %d\n", 164, aÃ±o[i]);
 
 					printf(" Clasificacion del juego: %s\n", clasificacion[i].c_str());
 					printf(" El genero es : %s\n", genero[i].c_str());
@@ -237,7 +237,7 @@ void Modificar()
 		if (modifi = id[i])
 		{
 			printf(" Ingrese el a%co\n", 164);
-			scanf_s("%d", &año[i]);
+			scanf_s("%d", &aÃ±o[i]);
 
 			printf(" Ingresa el nombre del articulo\n");
 			cin.ignore();
@@ -268,7 +268,7 @@ void Archivo()
 	ofstream archi;
 	string nombre;
 
-	nombre = "DatosAutoGuardados";
+	nombre = "DatosAutoGuardados.txt";
 	archi.open(nombre.c_str(), ios::out);
 
 	if (archi.fail())
@@ -285,7 +285,7 @@ void Archivo()
 		{
 			archi << "dato:" << i + 1 << endl;
 			archi << "articulo:" << id[i] << endl;
-			archi << "anio:" << año[i] << endl;
+			archi << "anio:" << aÃ±o[i] << endl;
 			archi << "videojuego:" << nombre[i] << endl;
 			archi << "clasificacion:" << clasificacion[i] << endl;
 			archi << "genero:" << genero[i] << endl;
